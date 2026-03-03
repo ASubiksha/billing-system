@@ -1,0 +1,37 @@
+unmanaged implementation in class zbp_interface_hdr_110 unique;
+strict ( 2 );
+
+define behavior for Z_INTERFACE_HDR_110
+alias Bill
+lock master
+authorization master ( instance )
+etag master bill_uuid
+{
+
+  create ( authorization : global );
+  update;
+  delete;
+
+  field ( readonly ) bill_uuid;
+
+  association _Item { create; }
+
+}
+
+define behavior for Z_INTERFACE_ITM_110
+alias BillItem
+lock dependent by _Header
+authorization dependent by _Header
+etag master item_uuid
+{
+
+  create;
+  update;
+  delete;
+
+  field ( readonly ) item_uuid;
+  field ( readonly ) bill_uuid;
+
+  association _Header;
+
+}

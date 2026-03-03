@@ -1,0 +1,59 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: {
+    typeName: 'Bill',
+    typeNamePlural: 'Bills',
+    title: { type: #STANDARD, label: 'Bill', value: 'bill_number' }
+  }
+}
+annotate entity Z_CONSUMPTION_HDR_110
+with
+{
+
+  @UI.facet: [
+    {
+      id: 'BillHeader',
+      purpose: #STANDARD,
+      type: #IDENTIFICATION_REFERENCE,
+      label: 'Bill Details',
+      position: 10
+    },
+    {
+      id: 'BillItems',
+      purpose: #STANDARD,
+      type: #LINEITEM_REFERENCE,
+      label: 'Item Details',
+      position: 20,
+      targetElement: '_Item'
+    }
+  ]
+
+  @UI.lineItem:       [{ position: 10, label: 'Bill Number' }]
+  @UI.identification: [{ position: 10, label: 'Bill Number' }]
+  @UI.selectionField: [{ position: 10 }]
+  bill_number;
+
+  @UI.lineItem:       [{ position: 20, label: 'Customer Name' }]
+  @UI.identification: [{ position: 20, label: 'Customer Name' }]
+  @UI.selectionField: [{ position: 20 }]
+  customer_name;
+
+  @UI.lineItem:       [{ position: 30, label: 'Billing Date' }]
+  @UI.identification: [{ position: 30, label: 'Billing Date' }]
+  @UI.selectionField: [{ position: 30 }]
+  billing_date;
+
+  @UI.lineItem:       [{ position: 40, label: 'Total Amount' }]
+  @UI.identification: [{ position: 40, label: 'Total Amount' }]
+  total_amount;
+
+  @UI.lineItem:       [{ position: 50, label: 'Currency' }]
+  @UI.identification: [{ position: 50, label: 'Currency' }]
+  currency;
+
+  @UI.lineItem:       [{ position: 60, label: 'Payment Status' }]
+  @UI.identification: [{ position: 60, label: 'Payment Status' }]
+  @UI.selectionField: [{ position: 60 }]
+  payment_status;
+
+}

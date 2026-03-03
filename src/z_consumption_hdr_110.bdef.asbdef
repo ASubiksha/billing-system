@@ -1,0 +1,10 @@
+projection;
+strict ( 2 );
+
+define behavior for Z_CONSUMPTION_HDR_110 alias Bill
+{
+  use create;
+  use update;
+  use delete;
+
+}

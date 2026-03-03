@@ -1,0 +1,5 @@
+@EndUserText.label: 'SERVICE DEFINITION'
+define service ZSERVICE_DEFINITION_110 {
+  expose Z_CONSUMPTION_HDR_110;
+  expose Z_CONSUMPTION_ITM_110;
+}

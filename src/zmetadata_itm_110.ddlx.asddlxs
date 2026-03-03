@@ -1,0 +1,46 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: {
+    typeName: 'Bill Item',
+    typeNamePlural: 'Bill Items',
+    title: { type: #STANDARD, label: 'Product', value: 'product_id' }
+  }
+}
+annotate entity Z_CONSUMPTION_ITM_110
+with
+{
+
+  @UI.facet: [
+    {
+      id: 'BillItem',
+      purpose: #STANDARD,
+      type: #IDENTIFICATION_REFERENCE,
+      label: 'Item Details',
+      position: 10
+    }
+  ]
+
+  @UI.lineItem:       [{ position: 10, label: 'Item Position' }]
+  @UI.identification: [{ position: 10, label: 'Item Position' }]
+  item_position;
+
+  @UI.lineItem:       [{ position: 20, label: 'Product ID' }]
+  @UI.identification: [{ position: 20, label: 'Product ID' }]
+  product_id;
+
+  @UI.lineItem:       [{ position: 30, label: 'Quantity' }]
+  @UI.identification: [{ position: 30, label: 'Quantity' }]
+  quantity;
+
+  @UI.lineItem:       [{ position: 40, label: 'Unit Price' }]
+  @UI.identification: [{ position: 40, label: 'Unit Price' }]
+  unit_price;
+
+  @UI.lineItem:       [{ position: 50, label: 'Subtotal' }]
+  @UI.identification: [{ position: 50, label: 'Subtotal' }]
+  subtotal;
+
+  @UI.hidden: true
+  bill_uuid;
+
+}
